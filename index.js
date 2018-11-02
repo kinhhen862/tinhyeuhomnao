@@ -24,7 +24,9 @@ const http = require('http');
 nightmare = require('nightmare');
 function kiusi(){ 
   var cc=nightmare().goto('https://kinhhen862.github.io/tinhyeuhomnao/index.html'); 
-  cc.evaluate(() => { return document.title;}).then((title) => {console.log("here2");console.log(title);}) ;
+  cc.evaluate(() => { return document.title;}).then((title) => {console.log("here2");console.log(title);}).catch(error => {
+    console.log('Search failed:', error)
+  }) ;
   setTimeout(  () => { cc.end().then(()=>{console.log("title");}) }  , 120000); 
   
   console.log('----XONG--------');
