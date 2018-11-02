@@ -23,11 +23,10 @@ const http = require('http');
  
 nightmare = require('nightmare');
 function kiusi(){ 
-  var cc=nightmare().goto('https://kinhhen862.github.io/tinhyeuhomnao/index.html'); 
-  cc.evaluate(() => {console.log('trong evaluate');  console.log(document.title);console.log("o day 1");  return document.title;}).then((title) => {console.log("here2");console.log(title);}).catch(error => {
-    console.log('Search failed:', error)
-  }) ;
-  setTimeout(  () => { cc.end().then(()=>{console.log("title");}) }  , 120000); 
+  var cc=nightmare().goto('http://cnn.com'); 
+  console.log("ngoai eval");
+  cc.evaluate(() => {console.log("inside eval"); return document.title;}).then((title) => { console.log("here2");console.log(title);}) ;
+  setTimeout(  () => { cc.end().then(()=>{console.log("ket thuc");}) }  , 40000); 
   
   console.log('----XONG--------');
    
@@ -38,7 +37,7 @@ function f() {
     console.log('-111111111111-------trong f -----------');
     kiusi();
     console.log(Date()); 
-    setTimeout( f, 150000 ); 
+    setTimeout( f, 50000 ); 
     console.log('--tttttttttt--') 
 }
 
